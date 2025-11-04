@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta author="Saúl Correyero Pañero">
+    <title>Task 05 Saúl</title>
+    <script src="./Js/javascript.js"></script>
+    <link rel="stylesheet" href="./Estilos/style.css">
+</head>
+<body>
+    <h1>Productos</h1>
+
+    <div id="container"></div>
+
+    <form id="productos">
+        
+        <label for="name">Nombre: </label>
+        <input type="text" id="name" placeholder="Nombre del producto" required><br><br>
+
+        <label for="price">Precio:</label>
+        <input type="number" id="price" placeholder="Precio" required><br><br>              <!--Saúl Correyero Pañero-->
+
+        <label for="category">Categoría:</label>
+        <select id="category" required>
+            <option value="">-- Selecciona una categoría --</option>
+            <option value="Informática">Informática</option>
+            <option value="Electrónica">Electrónica</option>
+            <option value="Oficina">Oficina</option>
+        </select><br><br>
+
+        <p>Estado:</p>
+        <label><input type="radio" name="estado" value="Nuevo" checked> Nuevo</label>
+        <label><input type="radio" name="estado" value="Usado"> Usado</label><br><br>
+
+        <label for="disp">
+            <input type="checkbox" id="disp"> Disponible
+        </label><br><br>
+
+        <button type="button" onclick="insertProduct()">Añadir</button>
+
+        <button type="button" onclick="showProducts()">Mostrar productos</button><hr>
+
+        <button type="button" onclick="finalizar()">Mostrar productos ordenados</button>
+
+        <button type="button" onclick="deleteProduct()">Eliminar producto</button>
+        
+    </form>
+
+    <footer>
+        <div id="frases"></div>
+    </footer>
+
+</body>
+</html>
