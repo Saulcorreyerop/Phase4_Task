@@ -192,3 +192,16 @@ function finalizar() {
   salida += `Total de productos: ${contador}`;
   alert(salida);
 }
+
+//MODIFICA TU PRACTICA FASE3
+//PARA QUE MUESTRE UN DIV 
+//USANDO SETINTERVAL UN RELOJ DIGITAL
+//QUE SE ACTUALICE CADA SEGUNDO
+
+function mostrarHora() {
+  const re = document.getElementById("reloj");
+  setInterval(() => {
+    const hora = new Date().toLocaleTimeString();
+    reloj.textContent = hora;
+  }, 1000);
+}

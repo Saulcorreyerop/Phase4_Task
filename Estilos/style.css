@@ -44,6 +44,14 @@ button:hover {
   justify-content: center;
 }
 
+#reloj {
+  margin: 50px auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+
 .weather-card {
   align-items: center;
   text-align: center;;
