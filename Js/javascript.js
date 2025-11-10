@@ -218,11 +218,13 @@ function detenerHora(){
     const re = document.getElementById("reloj");
     re.innerHTML = `
       <div class="time-card">
-        <p>Reloj detenido.</p>
-        <br>
+        <p>Reloj detenido a las:</p>
+        <p id="hora"></p>
         <button type="button" onclick="detenerHora();">Reanudar Reloj</button>
       </div>
       `;
+      let ahora = new Date();
+      document.getElementById("hora").textContent = ahora.toLocaleTimeString();
   }else{
     mostrarHora();
     intervalo = setInterval(mostrarHora, 1000);
