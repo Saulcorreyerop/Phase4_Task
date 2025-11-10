@@ -222,7 +222,7 @@ function detenerHora(){
         <br>
         <button type="button" onclick="detenerHora();">Reanudar Reloj</button>
       </div>
-      `
+      `;
   }else{
     mostrarHora();
     intervalo = setInterval(mostrarHora, 1000);
