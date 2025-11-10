@@ -62,3 +62,22 @@ button:hover {
   padding: 20px;
   border-radius: 20px;
 }
+
+.time-card {
+  cursor: crosshair;
+  align-items: center;
+  text-align: center;;
+  width:92%;
+  margin-top: 12px;
+  background-color: #2fff00;
+  color: rgb(55, 0, 255);
+  padding: 20px;
+  border-radius: 20px;
+}
+
+.time-card button{
+  background-color: rgb(55, 0, 200);
+  color: white;
+  border: none;
+  cursor:crosshair;
+}
