@@ -81,3 +81,8 @@ button:hover {
   border: none;
   cursor:crosshair;
 }
+.time-card button:hover {
+  background-color: rgb(50, 0, 255);
+  color: #2fff00;
+
+}

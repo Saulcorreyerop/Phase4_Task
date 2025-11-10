@@ -215,6 +215,14 @@ function detenerHora(){
   if(intervalo){
     clearInterval(intervalo);
     intervalo = null;
+    const re = document.getElementById("reloj");
+    re.innerHTML = `
+      <div class="time-card">
+        <p>Reloj detenido.</p>
+        <br>
+        <button type="button" onclick="detenerHora();">Reanudar Reloj</button>
+      </div>
+      `
   }else{
     mostrarHora();
     intervalo = setInterval(mostrarHora, 1000);
