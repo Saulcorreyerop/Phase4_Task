@@ -27,7 +27,7 @@ input,select,button {
 }
 
 button {
-  background-color: #007bff;
+  background-color: #00458e;
   color: white;
   border: none;
   cursor: pointer;
@@ -44,6 +44,14 @@ button:hover {
   justify-content: center;
 }
 
+#reloj {
+  margin: 50px auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+
 .weather-card {
   align-items: center;
   text-align: center;;
@@ -53,4 +61,28 @@ button:hover {
   color: white;
   padding: 20px;
   border-radius: 20px;
+}
+
+.time-card {
+  cursor: crosshair;
+  align-items: center;
+  text-align: center;;
+  width:92%;
+  margin-top: 12px;
+  background-color: #2fff00;
+  color: rgb(55, 0, 255);
+  padding: 20px;
+  border-radius: 20px;
+}
+
+.time-card button{
+  background-color: rgb(55, 0, 200);
+  color: white;
+  border: none;
+  cursor:crosshair;
+}
+.time-card button:hover {
+  background-color: rgb(50, 0, 255);
+  color: #2fff00;
+
 }
