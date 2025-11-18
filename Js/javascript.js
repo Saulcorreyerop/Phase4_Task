@@ -24,32 +24,6 @@ function pintarTemperaturaActual(datos, horaActual) {
             </div>
         `;
 }
-fetch(`https://jsonplaceholder.typicode.com/posts`)
-  .then((response) => response.json())
-  .then((json) => {
-    const userId = Math.floor(Math.random() * (10 - 1 + 1)) + 1;
-    // Filtrar las frases que pertenecen al usuario con el ID especificado
-    const frasesUsuario = json.filter((post) => post.userId === userId);
-    const aleatorio = Math.floor(Math.random() * frasesUsuario.length);
-    const id = frasesUsuario[aleatorio].id;
-    const titulo = frasesUsuario[aleatorio].title;
-    const body = frasesUsuario[aleatorio].body;
-    mostrarFrases(userId, id, titulo, body);
-  });
-
-function mostrarFrases(userId, id, titulo, body) {
-  const cont = document.getElementById("frases");
-
-  cont.innerHTML = `
-    <div class="weather-card">
-      <p>ID de Usuario: ${userId}</p>
-      <p>ID de Frase: ${id}</p>
-      <p>Título: ${titulo}</p>
-      <p>Frase: ${body}</p>
-    </div>
-  `;
-}
-
 let database = [
   {
     name: "Portatil Dell",
@@ -75,6 +49,7 @@ let database = [
     estado: "Nuevo",
   },
 ];
+localStorage.setItem("productos", JSON.stringify(database));
 let contador = database.length;
 
 function getFormData() {
@@ -171,6 +146,7 @@ function deleteProduct() {
 
   database.splice(index, 1);
   contador--;
+  localStorage.setItem("productos", JSON.stringify(database));
   alert(`Producto "${name}" eliminado correctamente.`);
 }
 
@@ -207,12 +183,12 @@ function mostrarHora() {
       <p id="hora"></p>
       <button type="button" onclick="detenerHora();">Detener Reloj</button>
     </div>`;
-    let ahora = new Date();
-    document.getElementById("hora").textContent = ahora.toLocaleTimeString();
+  let ahora = new Date();
+  document.getElementById("hora").textContent = ahora.toLocaleTimeString();
 }
 
-function detenerHora(){
-  if(intervalo){
+function detenerHora() {
+  if (intervalo) {
     clearInterval(intervalo);
     intervalo = null;
     const re = document.getElementById("reloj");
@@ -223,10 +199,33 @@ function detenerHora(){
         <button type="button" onclick="detenerHora();">Reanudar Reloj</button>
       </div>
       `;
-      let ahora = new Date();
-      document.getElementById("hora").textContent = ahora.toLocaleTimeString();
-  }else{
+    let ahora = new Date();
+    document.getElementById("hora").textContent = ahora.toLocaleTimeString();
+  } else {
     mostrarHora();
     intervalo = setInterval(mostrarHora, 1000);
+  }
+}
+
+// 1. Referenciamos el menú y el contenedor del reloj
+const selectorColor = document.getElementById('color');
+const contenedorReloj = document.getElementById('reloj');
+
+// 2. Escuchamos cuando el usuario cambia la opción
+selectorColor.addEventListener('change', function() {
+    const colorSeleccionado = selectorColor.value;
+    
+    // Si hay un color seleccionado, actualizamos la variable CSS del padre
+    if (colorSeleccionado) {
+        contenedorReloj.style.setProperty('--color-dinamico', colorSeleccionado);
+    }
+});
+
+function anadirLocalStorage() {
+  document.getElementById("aniadir").onclick = function () {
+    for (let i = 4; i < database.length; i++) {
+      localStorage.setItem("productos", JSON.stringify(database[i]));
+      window.alert("Producto añadido a LocalStorage");
+    }
   };
 }
