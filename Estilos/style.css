@@ -86,27 +86,3 @@ button:hover {
   color: #2fff00;
 
 }
-
-/* 1. El contenedor PADRE guarda la variable */
-#reloj {
-  /* Definimos un color inicial */
-  --color-dinamico: rgb(55, 0, 255); 
-
-  /* Tus otros estilos... */
-  margin: 50px auto;
-  display: flex;
-  justify-content: center;
-}
-
-/* 2. La tarjeta HIJA usa la variable */
-.time-card {
-  /* En lugar de un color fijo, usamos la variable */
-  color: var(--color-dinamico);
-  
-  /* El resto de tus estilos... */
-  cursor: crosshair;
-  width: 92%;
-  background-color: #2fff00;
-  padding: 20px;
-  border-radius: 20px;
-}

@@ -118,18 +118,6 @@ function insertProduct() {
   alert("Producto añadido");
 }
 
-function showProducts() {
-  for (n = 0; n < database.length; n++) {
-    window.alert(
-      `Nombre: ${database[n].name} | Precio: $${
-        database[n].price
-      } | Disponible: ${database[n].disp ? "Sí" : "No"} | Categoría: ${
-        database[n].category
-      } | Estado: ${database[n].estado}`
-    );
-  }
-}
-
 function deleteProduct() {
   let name = prompt("Introduce el nombre del producto que deseas eliminar:");
   if (!name) {
@@ -178,9 +166,10 @@ let intervalo = setInterval(mostrarHora, 1000);
 
 function mostrarHora() {
   const re = document.getElementById("reloj");
+  let color = document.getElementById("color").value;
   re.innerHTML = `
     <div class="time-card">
-      <p id="hora"></p>
+      <p id="hora" style="color: ${color}"></p>
       <button type="button" onclick="detenerHora();">Detener Reloj</button>
     </div>`;
   let ahora = new Date();
@@ -207,25 +196,29 @@ function detenerHora() {
   }
 }
 
-// 1. Referenciamos el menú y el contenedor del reloj
-const selectorColor = document.getElementById('color');
-const contenedorReloj = document.getElementById('reloj');
+const clock = document.getElementById("reloj");
+const select = document.getElementById("color");
 
-// 2. Escuchamos cuando el usuario cambia la opción
-selectorColor.addEventListener('change', function() {
-    const colorSeleccionado = selectorColor.value;
-    
-    // Si hay un color seleccionado, actualizamos la variable CSS del padre
-    if (colorSeleccionado) {
-        contenedorReloj.style.setProperty('--color-dinamico', colorSeleccionado);
-    }
+//Aplicar color guardado
+const savedColor = localStorage.getItem("clockColor");
+if (savedColor) {
+  clock.style.color = savedColor;
+  select.value = savedColor;
+}
+
+//Cambiar color dinamicamente
+select.addEventListener("change", () => {
+  const color = select.value;
+  clock.style.color = color;
+  localStorage.setItem("clockColor", color);
 });
 
 function anadirLocalStorage() {
-  document.getElementById("aniadir").onclick = function () {
-    for (let i = 4; i < database.length; i++) {
-      localStorage.setItem("productos", JSON.stringify(database[i]));
-      window.alert("Producto añadido a LocalStorage");
-    }
-  };
+  localStorage.setItem("productos", JSON.stringify(database));
+  window.alert("Productos añadidos a LocalStorage");
+}
+
+function elimiarCookies(){
+  localStorage.removeItem("productos");
+  window.alert("Productos eliminados de LocalStorage");
 }

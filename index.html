@@ -12,7 +12,7 @@
 
     <div>
         <div id="reloj"></div>
-        <label for="color">Color del reloj:</label>
+        <label>Color del reloj:</label>
         <select id="color">
             <option value="">-- Selecciona un color --</option>
             <option value="black">Negro</option>
@@ -50,15 +50,13 @@
 
         <button type="button" onclick="insertProduct()" id="aniadir" >Añadir</button>
 
-        <button type="button" onclick="showProducts()">Mostrar productos</button><hr>
-
         <button type="button" onclick="finalizar()">Mostrar productos ordenados</button>
 
         <button type="button" onclick="deleteProduct()">Eliminar producto</button>
 
         <button type="button" onclick="anadirLocalStorage()">Añadir Cookie</button>
 
-        <button type="button" >Elimina las cookies</button>
+        <button type="button" onclick="elimiarCookies()" >Elimina las cookies</button>
         
     </form>
 
