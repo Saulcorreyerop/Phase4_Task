@@ -261,4 +261,4 @@ function mostrarProductosTabla() {
   `;
   lista.innerHTML = html;
 }
-setInterval(mostrarProductosTabla, 10000);
+setInterval(mostrarProductosTabla, 1000);
