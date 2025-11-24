@@ -62,6 +62,7 @@ function getFormData() {
   return { name, price, disp, category, estado };
 }
 
+document.getElementById('insertProduct').addEventListener('click', insertProduct);
 function insertProduct() {
   // Recoger valores
   let { name, price, disp, category, estado } = getFormData();
@@ -118,6 +119,7 @@ function insertProduct() {
   alert("Producto añadido");
 }
 
+document.getElementById('deleteProduct').addEventListener('click', deleteProduct);
 function deleteProduct() {
   let name = prompt("Introduce el nombre del producto que deseas eliminar:");
   if (!name) {
@@ -138,6 +140,7 @@ function deleteProduct() {
   alert(`Producto "${name}" eliminado correctamente.`);
 }
 
+document.getElementById('finalizar').addEventListener('click', finalizar);
 function finalizar() {
   if (database.length === 0) {
     alert("No hay productos para mostrar.");
@@ -181,13 +184,14 @@ function detenerHora() {
     clearInterval(intervalo);
     intervalo = null;
     const re = document.getElementById("reloj");
+    let color = document.getElementById("color").value;
     re.innerHTML = `
       <div class="time-card">
-        <p>Reloj detenido a las:</p>
-        <p id="hora"></p>
+        <p style="color: ${color}">Reloj detenido a las:</p>
+        <p id="hora" style="color: ${color}"></p>
         <button type="button" onclick="detenerHora();">Reanudar Reloj</button>
       </div>
-      `;
+    `;
     let ahora = new Date();
     document.getElementById("hora").textContent = ahora.toLocaleTimeString();
   } else {
@@ -213,12 +217,48 @@ select.addEventListener("change", () => {
   localStorage.setItem("clockColor", color);
 });
 
+document.getElementById('anadirLocalStorage').addEventListener('click', anadirLocalStorage);
 function anadirLocalStorage() {
   localStorage.setItem("productos", JSON.stringify(database));
   window.alert("Productos añadidos a LocalStorage");
 }
 
+document.getElementById('elimiarCookies').addEventListener('click', elimiarCookies);
 function elimiarCookies(){
   localStorage.removeItem("productos");
   window.alert("Productos eliminados de LocalStorage");
 }
+
+function mostrarProductosTabla() {
+  const lista = document.getElementById("mostrarProductosTabla");
+  let html = `
+    <div class="weather-card">
+      <table border="1">
+        <tr>
+          <th>ID</th>
+          <th>Nombre</th>
+          <th>Precio</th>
+          <th>Disponible</th>
+          <th>Categoría</th>
+          <th>Estado</th>
+        </tr>
+  `;
+  for (let i = 0; i < database.length; i++) {
+    html += `
+      <tr>
+        <td>${i}</td>
+        <td>${database[i].name}</td>
+        <td>${database[i].price}</td>
+        <td>${database[i].disp}</td>
+        <td>${database[i].category}</td>
+        <td>${database[i].estado}</td>
+      </tr>
+    `;
+  }
+  html += `
+      </table>
+    </div>
+  `;
+  lista.innerHTML = html;
+}
+setInterval(mostrarProductosTabla, 1000);
