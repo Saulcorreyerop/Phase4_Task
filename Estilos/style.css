@@ -86,3 +86,32 @@ button:hover {
   color: #2fff00;
 
 }
+
+.table-card {
+  align-items: center;
+  text-align: center;;
+  width:90%;
+  margin-top: 12px;
+  background-color: #007bff;
+  color: white;
+  padding: 25px;
+  border-radius: 20px;
+}
+
+.table-card table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.table.card tr, .table-card th {
+  background-color: orange;
+  border: 1px solid #000000;
+  padding: 8px;
+}
+
+.table-card td{
+  background-color: yellow;
+  border: 1px solid #000000;
+  color: black;
+  padding: 8px;
+}

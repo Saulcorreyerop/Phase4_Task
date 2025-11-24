@@ -232,7 +232,7 @@ function elimiarCookies(){
 function mostrarProductosTabla() {
   const lista = document.getElementById("mostrarProductosTabla");
   let html = `
-    <div class="weather-card">
+    <div class="table-card">
       <table border="1">
         <tr>
           <th>ID</th>
@@ -261,4 +261,4 @@ function mostrarProductosTabla() {
   `;
   lista.innerHTML = html;
 }
-setInterval(mostrarProductosTabla, 1000);
+setInterval(mostrarProductosTabla, 10000);
